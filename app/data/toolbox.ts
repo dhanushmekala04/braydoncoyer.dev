@@ -14,7 +14,7 @@ const softwareData: SoftwareDataItem[] = [
   {
     title: "Raycast",
     imgSrc: "/raycast_logo.png",
-    link: "https://www.raycast.com/",
+    link: "https://raycast.com/?via=braydon",
   },
   {
     title: "Obsidian",

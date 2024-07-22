@@ -214,9 +214,9 @@ export default function ToolboxPage() {
 
         <div>
           <HorizontalLine />
-          <div className="grid grid-cols-3 grid-rows-2 gap-2">
+          <div className="grid grid-cols-3 grid-rows-2 gap-2 h-full">
             {hardwareData.map((item) => (
-              <a href={item.link} className="group" key={item.title}>
+              <a href={item.link} className="group h-full" key={item.title}>
                 <BorderCard>
                   <div className="flex flex-col space-y-3">
                     <p className="text-base leading-5 text-text-primary font-semibold">
@@ -235,7 +235,6 @@ export default function ToolboxPage() {
               </a>
             ))}
           </div>
-
           <div className="h-16 relative">
             <HorizontalLine />
             <span className="absolute left-64 top-5">
