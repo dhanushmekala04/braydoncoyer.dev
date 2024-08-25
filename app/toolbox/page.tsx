@@ -82,8 +82,8 @@ export default function ToolboxPage() {
       <span className="absolute left-36">
         <BgGradient />
       </span>
-      <div className="space-y-[80px] border-x border-border-primary/50 relative">
-        <div className="pt-[90px]">
+      <div className="space-y-[80px] relative">
+        <div className="pt-[90px] max-w-2xl mx-auto">
           <PageTitle title="Hardware and software I keep in my toolbox." />
         </div>
         <span className="absolute top-40 -translate-y-1/2 left-1/2 translate-x-1/2">

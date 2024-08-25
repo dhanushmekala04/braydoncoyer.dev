@@ -12,7 +12,7 @@ import { HorizontalLine } from "../components/HorizontalLine";
 //   description: "Read my thoughts on software development, design, and more.",
 // };
 
-async function fetchAndSortPosts(): Promise<Blog[]> {
+export async function fetchAndSortPosts(): Promise<Blog[]> {
   try {
     const allPosts = await posts; // Assuming 'posts' is a promise or async call
     return allPosts
@@ -44,7 +44,9 @@ export default async function BlogPage() {
 
   return (
     <div className="space-y-[80px] mt-[100px] w-full">
-      <PageTitle title="Insightful and helpful content curated for you." />
+      <div className="max-w-2xl mx-auto">
+        <PageTitle title="Insightful and helpful content curated for you." />
+      </div>
 
       {/* <div className="inset-x-0 absolute">
         <div className="flex space-x-8">
@@ -209,7 +211,7 @@ export default async function BlogPage() {
 
       {/* Featured Articles */}
       <SectionTitlePill title="Featured" />
-      <ul className="grid grid-cols-3 gap-6">
+      <ul className="grid grid-cols-3 gap-2">
         <HorizontalLine />
         {featuredArticles.length > 0 ? (
           <>
@@ -232,7 +234,7 @@ export default async function BlogPage() {
                       alt=""
                       className="rounded-2xl h-[225px] object-cover"
                     />
-                    <div className="mt-4 flex flex-col w-full space-y-4 px-4 flex-grow">
+                    <div className="my-4 flex flex-col w-full space-y-4 px-4 flex-grow">
                       <h2 className="tracking-tight text-slate-900 text-lg font-bold leading-7">
                         {post.title}
                       </h2>

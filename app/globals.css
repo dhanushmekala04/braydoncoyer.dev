@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.column {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 12px 19px,
+    #d6dade80 19px 20px
+  );
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
