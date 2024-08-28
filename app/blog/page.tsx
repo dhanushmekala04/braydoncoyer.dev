@@ -7,6 +7,8 @@ import {
   extractUniqueBlogCategories,
   fetchAndSortBlogPosts,
 } from "../lib/utils";
+import { NewsletterSignUp } from "../components/NewsletterSignUp";
+import { BgGradient } from "../components/BgGradient";
 
 export default async function BlogPage() {
   const allPublishedBlogPosts = await fetchAndSortBlogPosts();
@@ -41,6 +43,10 @@ export default async function BlogPage() {
           />
         </div>
       </div> */}
+
+      <span className="absolute left-1/2 -translate-x-1/2 top-0">
+        <BgGradient />
+      </span>
 
       <svg
         className="absolute top-0 w-full inset-x-0 left-1/2 transform -translate-x-1/2 pointer-events-none"
@@ -296,6 +302,11 @@ export default async function BlogPage() {
           <p>Nothing to see here yet...</p>
         )}
       </ul>
+      <NewsletterSignUp
+        title="Stay updated on future articles"
+        description="Sign up to receive notifications about new blog posts, insights, and exclusive content directly in your inbox."
+        buttonText="Get Notified"
+      />
     </div>
   );
 }
