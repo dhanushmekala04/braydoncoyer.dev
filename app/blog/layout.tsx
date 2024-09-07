@@ -1,19 +1,8 @@
 import { ReactNode } from "react";
 import { PageTitle } from "app/components/PageTitle";
 import { SectionTitlePill } from "app/components/SectionTitlePill";
-import { BgGradient } from "app/components/BgGradient";
 
-interface BlogLayoutProps {
-  children: ReactNode;
-  title: string;
-  sectionTitle?: string;
-}
-
-export default function BlogLayout({
-  children,
-  title,
-  sectionTitle,
-}: BlogLayoutProps) {
+export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
     <div className="space-y-[80px] mt-[100px] w-full">
       <svg
@@ -156,12 +145,6 @@ export default function BlogLayout({
           </filter>
         </defs>
       </svg>
-
-      <div className="max-w-2xl mx-auto z-10">
-        <PageTitle title={title} />
-      </div>
-
-      {sectionTitle && <SectionTitlePill title={sectionTitle} />}
 
       {children}
     </div>
