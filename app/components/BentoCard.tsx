@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface BentoCardProps {
   children: React.ReactNode;
@@ -7,6 +8,7 @@ interface BentoCardProps {
   colSpan?: number;
   className?: string;
   showHoverGradient?: boolean;
+  linkTo?: string;
 }
 
 export function BentoCard({
@@ -16,15 +18,61 @@ export function BentoCard({
   colSpan = 7,
   className = "",
   showHoverGradient = true,
+  linkTo,
 }: BentoCardProps) {
-  return (
+  const cardContent = (
     <div
-      className={`p-6 rounded-2xl border border-border-primary flex flex-col group hover:bg-white relative overflow-hidden ${height} row-span-${rowSpan} col-span-${colSpan} ${className}`}
+      className={`bg-bg-primary p-6 rounded-2xl border border-border-primary flex flex-col group hover:bg-white relative overflow-hidden ${height} row-span-${rowSpan} col-span-${colSpan} ${className}`}
     >
       {showHoverGradient && (
         <div className="absolute inset-0 bg-gradient-to-tl from-[#6C47FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-30 user-select-none pointer-events-none"></div>
       )}
+      {linkTo && (
+        <div className="absolute bottom-4 right-4 w-9 h-9 rotate-6 rounded-full bg-[#6C47FF]/40 opacity-0 group-hover:opacity-100 group-hover:translate-y-[-8px] group-hover:rotate-0 transition-all duration-300 ease-in-out z-50 flex items-center justify-center">
+          <svg
+            className="w-6 h-6 text-[#6C47FF]"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17.25 15.25V6.75H8.75"
+            ></path>
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 7L6.75 17.25"
+            ></path>
+          </svg>
+        </div>
+      )}
       {children}
     </div>
   );
+
+  if (linkTo) {
+    return linkTo.startsWith("/") ? (
+      <Link href={linkTo} className="block">
+        {cardContent}
+      </Link>
+    ) : (
+      <a
+        href={linkTo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }
