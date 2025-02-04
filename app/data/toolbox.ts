@@ -5,10 +5,10 @@ type HardwareDataItem = {
 };
 
 type SoftwareDataItem = {
-    title: string;
-    imgSrc: string;
-    link: string;
-}
+  title: string;
+  imgSrc: string;
+  link: string;
+};
 
 const softwareData: SoftwareDataItem[] = [
   {
@@ -44,7 +44,7 @@ const softwareData: SoftwareDataItem[] = [
   {
     title: "Tana",
     imgSrc: "/tana_logo.png",
-    link: "https://tana.inc/",
+    link: "https://try.tana.inc/66bqr1sp5wkb",
   },
   {
     title: "Spotify",
@@ -149,7 +149,4 @@ const hardwareData: HardwareDataItem[] = [
   },
 ];
 
-export {
-    hardwareData,
-    softwareData,
-}
+export { hardwareData, softwareData };

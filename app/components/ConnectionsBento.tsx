@@ -2,6 +2,7 @@
 
 import { BentoCard } from "./BentoCard";
 import { motion, useAnimation } from "framer-motion";
+import clsx from "clsx";
 
 export function ConnectionsBento({
   linkTo,
@@ -13,15 +14,15 @@ export function ConnectionsBento({
   return (
     <BentoCard height="h-[300px]" linkTo={linkTo}>
       <div
-        className="flex flex-col h-full"
+        className="flex h-full flex-col"
         onMouseEnter={() => controls.start("active")}
         onMouseLeave={() => controls.start("idle")}
       >
-        <div className="absolute left-0 inset-y-0 w-1/3 bg-gradient-to-r from-bg-primary group-hover:from-bg-white to-transparent z-20"></div>
-        <div className="absolute right-0 inset-y-0 w-1/3 bg-gradient-to-l from-bg-primary group-hover:from-bg-white to-transparent z-20"></div>
+        <div className="group-hover:from-bg-white absolute inset-y-0 left-0 z-20 w-1/3 bg-gradient-to-r from-bg-primary to-transparent"></div>
+        <div className="group-hover:from-bg-white absolute inset-y-0 right-0 z-20 w-1/3 bg-gradient-to-l from-bg-primary to-transparent"></div>
         <div>
           <BackgroundPattern />
-          <span className="absolute left-1/2 -translate-x-1/2 top-2.5">
+          <span className="absolute left-1/2 top-2.5 -translate-x-1/2">
             <div className="relative mt-9">
               <svg
                 className="mx-auto"
@@ -41,7 +42,7 @@ export function ConnectionsBento({
                     fill="#F7F7F8"
                   />
                   <rect
-                    className="stroke-[#D6DADE] group-hover:stroke-indigo-400 transition-colors delay-200 duration-500"
+                    className="stroke-[#D6DADE] transition-colors delay-200 duration-500 group-hover:stroke-indigo-400"
                     x="16.75"
                     y="16.75"
                     width="114.5"
@@ -95,63 +96,109 @@ export function ConnectionsBento({
                 </defs>
               </svg>
               <img
-                className="h-[100px] w-[100px] rounded-full absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2"
+                className="absolute left-1/2 top-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 transform rounded-full"
                 src="/braydon_headshot_1.jpeg"
                 alt=""
               />
             </div>
           </span>
 
-          {/* Amy */}
-          <AnimatedConnectionCircle
-            src="/amy_dutton.jpg"
-            top="55%"
-            left="23%"
-            delay={0.1}
-            sizeClass="w-12 h-12"
-            controls={controls}
-          />
+          <span className="hidden md:block">
+            {/* Amy */}
+            <AnimatedConnectionCircle
+              src="/amy_dutton.jpg"
+              top="55%"
+              left="23%"
+              delay={0.1}
+              sizeClass="w-12 h-12"
+              controls={controls}
+            />
 
-          {/* James Q Quick */}
-          <AnimatedConnectionCircle
-            src="/james_q_quick.jpg"
-            top="53%"
-            left="67%"
-            delay={0.3}
-            controls={controls}
-          />
+            {/* James Q Quick */}
+            <AnimatedConnectionCircle
+              src="/james_q_quick.jpg"
+              top="53%"
+              left="67%"
+              delay={0.3}
+              controls={controls}
+            />
 
-          {/* Colby */}
-          <AnimatedConnectionCircle
-            src="/colby_fayock.jpg"
-            top="4%"
-            left="32%"
-            delay={0.2}
-            sizeClass="w-14 h-14"
-            controls={controls}
-          />
+            {/* Colby */}
+            <AnimatedConnectionCircle
+              src="/colby_fayock.jpg"
+              top="4%"
+              left="32%"
+              delay={0.2}
+              sizeClass="w-14 h-14"
+              controls={controls}
+            />
 
-          {/* Sarah */}
-          <AnimatedConnectionCircle
-            src="/sarah_drasner.jpg"
-            top="15%"
-            left="78%"
-            delay={0.4}
-            sizeClass="w-10 h-10"
-            controls={controls}
-          />
+            {/* Sarah */}
+            <AnimatedConnectionCircle
+              src="/sarah_drasner.jpg"
+              top="15%"
+              left="78%"
+              delay={0.4}
+              sizeClass="w-10 h-10"
+              controls={controls}
+            />
 
-          {/* Shashi */}
-          <AnimatedConnectionCircle
-            src="/shashi_lo.jpg"
-            top="5%"
-            left="7%"
-            delay={0.5}
-            sizeClass="w-9 h-9"
-            controls={controls}
-          />
+            {/* Shashi */}
+            <AnimatedConnectionCircle
+              src="/shashi_lo.jpg"
+              top="5%"
+              left="7%"
+              delay={0.5}
+              sizeClass="w-9 h-9"
+              controls={controls}
+            />
+          </span>
+
+          {/* mobile circle */}
+          <span className="md:hidden">
+            <ConnectionCircle
+              sizeClass="w-10 h-10"
+              className="absolute left-4 top-4"
+            >
+              <img
+                className="rounded-full"
+                src="/shashi_lo.jpg"
+                alt="Connection"
+              />
+            </ConnectionCircle>
+            <ConnectionCircle
+              sizeClass="w-12 h-12"
+              className="absolute bottom-20 left-14"
+            >
+              <img
+                className="rounded-full"
+                src="/amy_dutton.jpg"
+                alt="Connection"
+              />
+            </ConnectionCircle>
+            <ConnectionCircle
+              sizeClass="w-14 h-14"
+              className="absolute right-16 top-4"
+            >
+              <img
+                className="rounded-full"
+                src="/james_q_quick.jpg"
+                alt="Connection"
+              />
+            </ConnectionCircle>
+            <ConnectionCircle
+              sizeClass="w-11 h-11"
+              className="absolute bottom-20 right-4"
+            >
+              <img
+                className="rounded-full"
+                src="/colby_fayock.jpg"
+                alt="Connection"
+              />
+            </ConnectionCircle>
+          </span>
         </div>
-        <div className="text-center w-full mt-auto z-20">
+        <div className="z-20 mt-auto w-full text-balance text-center">
           <h2 className="text-base font-medium">Connections</h2>
           <p className="mt-1 text-text-secondary">
             An evolving list of people I&apos;ve met and those I wish to meet.
@@ -165,7 +212,7 @@ export function ConnectionsBento({
 function BackgroundPattern() {
   return (
     <svg
-      className="absolute left-1/2 -translate-x-1/2 top-0"
+      className="absolute left-1/2 top-0 -translate-x-1/2"
       width="704"
       height="250"
       viewBox="0 0 637 250"
@@ -247,14 +294,21 @@ function ConnectionCircle({
   children,
   sizeClass = "w-16 h-16",
   paddingClass = "p-1",
+  className,
 }: {
   children: React.ReactNode;
   sizeClass?: string;
   paddingClass?: string;
+  className?: string;
 }) {
   return (
     <div
-      className={`rounded-full bg-[#EDEEF0] ${paddingClass} border border-bg-secondary ${sizeClass}`}
+      className={clsx(
+        "border-bg-secondary rounded-full border bg-[#EDEEF0]",
+        sizeClass,
+        paddingClass,
+        className,
+      )}
     >
       {children}
     </div>
