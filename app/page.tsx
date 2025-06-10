@@ -37,8 +37,7 @@ export default async function Home() {
                 delay={HEADING_DELAY}
                 className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]"
               >
-                Hey, I&apos;m Braydon! <br /> Welcome to my corner of the
-                internet!
+                Hey, I&apos;m [Your Name]! <br /> AI/ML Engineer & Enthusiast
               </AnimatedText>
             </GridWrapper>
             <GridWrapper>
@@ -48,10 +47,7 @@ export default async function Home() {
                   delay={PARAGRAPH_DELAY}
                   className="leading-8 text-text-secondary"
                 >
-                  I&apos;m a front-end developer with a love for design and a
-                  knack for tinkering. This site is intentionally
-                  over-engineered and serves as my playground for experimenting
-                  with new ideas and seeing what sticks!
+                  I&apos;m passionate about Artificial Intelligence and Machine Learning, with hands-on experience in building intelligent systems, data-driven solutions, and deploying ML models. This site showcases my journey, projects, and expertise in the AI/ML domain.
                 </AnimatedText>
               </div>
             </GridWrapper>
@@ -78,7 +74,7 @@ export default async function Home() {
             </GridWrapper>
             <GridWrapper>
               <h2 className="mx-auto max-w-lg text-balance text-center text-3xl font-medium leading-10 tracking-tight text-text-primary md:text-4xl">
-                Here&apos;s what sets me apart and makes me unique
+                My journey in AI/ML: experience, projects, and continuous learning
               </h2>
             </GridWrapper>
           </div>
